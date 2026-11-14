@@ -510,3 +510,18 @@ body {
   padding:10px 18px; font:600 10px Arial,sans-serif;
   letter-spacing:2px; cursor:pointer;
 }
+
+.intro-video__sound {
+  position:absolute;
+  top:20px;
+  right:20px;
+  z-index:3;
+  padding:10px 14px;
+  border:1px solid #d0d1d3;
+  color:#d0d1d3;
+  background:rgba(52,57,67,.65);
+  font:600 11px Arial,sans-serif;
+  letter-spacing:1.5px;
+  cursor:pointer;
+  pointer-events:auto;
+}
