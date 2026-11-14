@@ -738,3 +738,14 @@ main.home-page{
   .home-page .intro-video__cta{min-width:132px;min-height:38px;padding:8px 18px;font-size:11px}
   .home-page .home-categories{padding:22px 12px}
 }
+
+
+/* Keep the social links directly below categories on every mobile browser */
+main.home-page{
+  min-height:0 !important;
+  height:auto !important;
+  justify-content:flex-start !important;
+}
+.home-page .social-footer{
+  margin-top:0 !important;
+}
