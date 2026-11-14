@@ -552,3 +552,25 @@ body {
  .intro-video__media{max-height:calc(100svh - 150px)}
  .social-footer{gap:14px 20px}
 }
+
+
+/* Make SHOP NOW clearly visible over the intro video */
+.intro-video{position:relative}
+.intro-video__overlay{
+  position:absolute;inset:0;z-index:4;
+  display:flex;align-items:flex-end;justify-content:center;
+  padding:0 0 34px;background:linear-gradient(180deg,transparent 58%,rgba(0,0,0,.35));
+  pointer-events:none;
+}
+.intro-video__actions{
+  position:relative;z-index:5;display:flex;flex-direction:column;
+  align-items:center;gap:12px;margin-bottom:8px;pointer-events:none;
+}
+.intro-video__cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:160px;padding:15px 30px;
+  border:1px solid #d0d1d3;background:#343943;color:#fff;
+  font:700 12px Arial,sans-serif;letter-spacing:2px;
+  text-decoration:none;visibility:visible;opacity:1;pointer-events:auto;
+}
+.intro-video__sound{pointer-events:auto}
