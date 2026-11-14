@@ -587,3 +587,37 @@ main.home-page{width:100%;min-height:100svh;margin:0;padding:0;display:flex;flex
 .home-page .home-categories{flex:0 0 auto;width:100%;padding:28px 16px;background:#343943}
 .home-page .social-footer{width:100%;margin-top:auto;background:#343943}
 @media(max-width:600px){.home-page .intro-video{aspect-ratio:16/9}.home-page .intro-video__sound{top:10px;right:10px}.home-page .intro-video__actions{bottom:16px}}
+
+
+/* Compact sound toggle on mobile and desktop */
+.home-page .intro-video__sound{
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:8;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:auto;
+  min-width:0;
+  height:28px;
+  padding:0 9px;
+  border:1px solid rgba(208,209,211,.65);
+  border-radius:2px;
+  background:rgba(52,57,67,.58);
+  color:#d0d1d3;
+  font:600 8px Arial,sans-serif;
+  letter-spacing:1px;
+  line-height:1;
+  white-space:nowrap;
+}
+@media(max-width:600px){
+  .home-page .intro-video__sound{
+    top:8px;
+    right:8px;
+    height:25px;
+    padding:0 7px;
+    font-size:7px;
+    letter-spacing:.8px;
+  }
+}
