@@ -10,11 +10,11 @@
 <body>
   <main class="home-page">
     <section class="intro-video" aria-label="THE CLOSET introduction">
-      <video class="intro-video__media" autoplay muted loop playsinline preload="metadata" poster="homepage.webp">
+      <video id="closetIntro" class="intro-video__media" autoplay muted loop playsinline preload="metadata" poster="homepage.webp">
         <source src="closet-intro.mp4.mp4" type="video/mp4">
       </video>
       <div class="intro-video__overlay">
-        <a class="intro-video__cta" href="products.html">SHOP NOW</a>
+        <div class="intro-video__actions"><button class="intro-video__sound" id="soundToggle" type="button" aria-label="Turn sound on">SOUND OFF</button><a class="intro-video__cta" href="products.html">SHOP NOW</a></div>
       </div>
     </section>
     <nav class="home-categories" aria-label="Shop categories">
@@ -26,5 +26,16 @@
       <a href="products.html?category=essentials">ESSENTIALS</a>
     </nav>
   </main>
+<script>
+  const introVideo = document.getElementById("closetIntro");
+  const soundToggle = document.getElementById("soundToggle");
+  soundToggle.addEventListener("click", async () => {
+    introVideo.muted = !introVideo.muted;
+    soundToggle.textContent = introVideo.muted ? "SOUND OFF" : "SOUND ON";
+    soundToggle.setAttribute("aria-label", introVideo.muted ? "Turn sound on" : "Turn sound off");
+    if (!introVideo.paused) return;
+    try { await introVideo.play(); } catch (e) {}
+  });
+</script>
 </body>
 </html>
