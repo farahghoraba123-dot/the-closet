@@ -1,188 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE CLOSET</title>
-    <link rel="stylesheet" href="style.css">
-
-
-    <style>
-       body {
-    margin: 0;
-    background: #343943 !important;
-    color: #d0d1d3;
-    font-family: Arial, sans-serif;
-}
-
-.shop-header,
-.products-page {
-    background: #343943 !important;
-    color: #d0d1d3;
-}
-
-        .shop-header {
-            height: 75px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid #777b82;
-        }
-
-        .shop-header h1 {
-            font-size: 28px;
-            letter-spacing: 3px;
-            margin: 0;
-        }
-
-        .products-page {
-            min-height: calc(100vh - 76px);
-            text-align: center;
-            padding: 70px 20px;
-        }
-
-        .products-page h2 {
-            font-size: 30px;
-            letter-spacing: 4px;
-            margin-bottom: 25px;
-        }
-
-        .coming-soon {
-            color: #bfc1c5;
-            font-size: 15px;
-            letter-spacing: 3px;
-            margin-top: 100px;
-        }
-        .bag-panel {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 400px;
-    max-width: 100%;
-    height: 100vh;
-    background: #343943;
-    color: #d0d1d3;
-    z-index: 1000;
-    padding: 25px;
-    box-shadow: -5px 0 20px rgba(0,0,0,0.3);
-    overflow-y: auto;
-}
-
-.bag-panel.open {
-    display: flex;
-    flex-direction: column;
-}
-
-.bag-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #777b82;
-    padding-bottom: 15px;
-}
-
-.bag-header button {
-    background: none;
-    border: none;
-    color: #d0d1d3;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-#bag-items {
-    flex: 1;
-    padding: 25px 0;
-}
-
-.bag-footer {
-    border-top: 1px solid #777b82;
-    padding-top: 20px;
-}
-
-#checkout-button {
-    width: 100%;
-    padding: 15px;
-    background: #d0d1d3;
-    color: #343943;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-#checkout-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.bag-button {
-    position: absolute;
-    right: 25px;
-    background: transparent;
-    color: #d0d1d3;
-    border: 1px solid #777b82;
-    padding: 10px 16px;
-    cursor: pointer;
-}
-    </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE CLOSET | Collection</title><link rel="stylesheet" href="style.css">
+<style>
+body{margin:0;background:#343943;color:#d0d1d3;font-family:Arial,sans-serif}
+.shop-header{height:76px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #626873}
+.shop-header h1{font-size:22px;letter-spacing:3px}
+.shop-header a,.back-link{color:#d0d1d3;text-decoration:none;letter-spacing:1px;font-size:12px}
+.products-page{min-height:70vh;padding:45px 5%}
+.products-page h2{text-align:center;letter-spacing:3px;font-weight:400}
+.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:35px}
+.product-card{border:1px solid #59606b;padding:14px;text-align:center}
+.product-card img{width:100%;aspect-ratio:3/4;object-fit:cover;background:#414752}
+.product-card h3{font-weight:400;letter-spacing:1px}
+.product-card select,.product-card button{width:100%;padding:12px;margin-top:10px;background:#343943;color:#d0d1d3;border:1px solid #858b94}
+.product-card button{cursor:pointer;background:#d0d1d3;color:#343943;font-weight:bold}
+.empty-catalog{text-align:center;max-width:520px;margin:70px auto;line-height:1.8;color:#c4c7cc}
+#bag-panel{display:none;position:fixed;z-index:10;right:0;top:0;width:min(390px,100%);height:100dvh;overflow:auto;background:#252a33;padding:22px;box-shadow:0 0 0 999px #0008}
+#bag-panel.open{display:block}.bag-head{display:flex;justify-content:space-between;align-items:center}
+.bag-head button{background:none;color:#d0d1d3;border:0;font-size:28px}
+.bag-row{border-bottom:1px solid #555d68;padding:12px 0;line-height:1.6}
+#checkout-link{display:block;text-align:center;padding:14px;background:#d0d1d3;color:#343943;text-decoration:none;margin-top:20px}
+@media(max-width:700px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.products-page{padding:30px 4%}.product-card{padding:8px}}
+</style>
 </head>
-
 <body>
-
-   <header class="shop-header">
-    <h1>THE CLOSET</h1>
-    <button class="bag-button" onclick="openBag()">
-        BAG (<span id="bag-count">0</span>)
-    </button>
-</header>
-
-    <main class="products-page">
-        <h2 id="category-title">COLLECTION</h2>
-        <p class="coming-soon">NEW COLLECTION COMING SOON</p>
-    </main>
-    <div id="bag-panel" class="bag-panel">
-    <div class="bag-header">
-        <h2>YOUR BAG</h2>
-        <button onclick="closeBag()">×</button>
-    </div>
-
-    <div id="bag-items">
-        <p>Your bag is empty.</p>
-    </div>
-
-    <div class="bag-footer">
-        <div class="summary-line">
-            <strong>Subtotal</strong>
-            <strong id="bag-total">EGP 0</strong>
-        </div>
-       <button id="checkout-button" onclick="window.location.href='checkout.html'">
-    CHECKOUT
-</button>
-    </div>
-</div>
-
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const category = params.get("category");
-
-        const names = {
-            hoodies: "HOODIES",
-            jackets: "JACKETS",
-            jeans: "JEANS",
-            sweatpants: "SWEATPANTS",
-            essentials: "EVERYDAY ESSENTIALS"
-        };
-
-        document.getElementById("category-title").textContent =
-            names[category] || "COLLECTION";
-    
-    function openBag() {
-    document.getElementById("bag-panel").classList.add("open");
-}
-
-function closeBag() {
-    document.getElementById("bag-panel").classList.remove("open");
-    }
+<header class="shop-header"><a href="index.html">← HOME</a><h1>THE CLOSET</h1><button onclick="openBag()" style="background:none;color:#d0d1d3;border:1px solid #777;padding:10px">BAG (<span id="bag-count">0</span>)</button></header>
+<main class="products-page"><h2 id="category-title">COLLECTION</h2><div id="product-grid" class="product-grid"></div><p id="empty-catalog" class="empty-catalog" hidden>THE COLLECTION IS BEING PREPARED.<br>Product photos and prices will be added here soon.</p></main>
+<aside id="bag-panel"><div class="bag-head"><h2>YOUR BAG</h2><button onclick="closeBag()" aria-label="Close bag">×</button></div><div id="bag-items"></div><p id="bag-total"></p><a id="checkout-link" href="checkout.html">CHECKOUT</a></aside>
+<script src="products-data.js"></script>
+<script>
+const names={hoodies:"HOODIES",denim:"DENIM",jackets:"JACKETS",jeans:"JEANS",sweatpants:"SWEATPANTS",essentials:"EVERYDAY ESSENTIALS"};
+const category=new URLSearchParams(location.search).get("category")||"";
+document.getElementById("category-title").textContent=names[category]||"COLLECTION";
+let bag=JSON.parse(localStorage.getItem("closetBag")||"[]");
+const products=(window.CLOSET_PRODUCTS||[]).filter(p=>!category||p.category===category|| (category==="denim"&&p.category==="jeans"));
+function saveBag(){localStorage.setItem("closetBag",JSON.stringify(bag));renderBag()}
+function addToBag(id){const p=products.find(x=>String(x.id)===String(id));const size=document.getElementById("size-"+id).value;if(!size){alert("Please select a size.");return}const found=bag.find(x=>String(x.id)===String(id)&&x.size===size);if(found)found.qty++;else bag.push({id:p.id,name:p.name,price:Number(p.price),size,qty:1});saveBag();openBag()}
+function renderBag(){document.getElementById("bag-count").textContent=bag.reduce((s,x)=>s+x.qty,0);document.getElementById("bag-items").innerHTML=bag.length?bag.map((x,i)=>'<div class="bag-row">'+x.name+' · '+x.size+' · Qty '+x.qty+'<br>EGP '+(x.price*x.qty)+' <button onclick="removeItem('+i+')" style="float:right">Remove</button></div>').join():'<p>Your bag is empty.</p>';document.getElementById("bag-total").textContent='Subtotal: EGP '+bag.reduce((s,x)=>s+x.price*x.qty,0);document.getElementById("checkout-link").style.opacity=bag.length?1:.5;document.getElementById("checkout-link").style.pointerEvents=bag.length?'auto':'none'}
+function removeItem(i){bag.splice(i,1);saveBag()}
+function openBag(){document.getElementById("bag-panel").classList.add("open")}
+function closeBag(){document.getElementById("bag-panel").classList.remove("open")}
+const grid=document.getElementById("product-grid");
+if(!products.length){document.getElementById("empty-catalog").hidden=false}
+else{grid.innerHTML=products.map(p=>'<article class="product-card"><img src="'+p.image+'" alt="'+p.name+'"><h3>'+p.name+'</h3><p>EGP '+p.price+'</p><select id="size-'+p.id+'"><option value="">Select size</option>'+["M","L","XL","XXL"].map(s=>'<option>'+s+'</option>').join("")+'</select><button onclick="addToBag(\''+p.id+'\')">ADD TO BAG</button></article>').join("")}
+renderBag();
 </script>
-</body>
-</html>
+</body></html>
