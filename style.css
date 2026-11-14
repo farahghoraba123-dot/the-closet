@@ -819,3 +819,20 @@ main.home-page{
     background:#343943;
   }
 }
+
+
+/* Arrange mobile categories in fixed columns so LOUNGEWEAR sits below HOODIES */
+@media(max-width:600px){
+  .home-page .home-categories{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    justify-items:center;
+    align-items:center;
+    column-gap:8px;
+    row-gap:18px;
+  }
+  .home-page .home-categories a{
+    text-align:center;
+    white-space:nowrap;
+  }
+}
