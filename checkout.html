@@ -1,274 +1,32 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE CLOSET | Checkout</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            background: #ffffff;
-            color: #171717;
-            font-family: Arial, sans-serif;
-        }
-
-        .checkout-header {
-            height: 75px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-bottom: 1px solid #eeeeee;
-        }
-
-        .checkout-header h1 {
-            font-size: 23px;
-            letter-spacing: 3px;
-        }
-
-        .checkout-container {
-            max-width: 1050px;
-            margin: 40px auto;
-            padding: 0 25px;
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 55px;
-        }
-
-        h2 {
-            font-size: 25px;
-            margin-bottom: 22px;
-        }
-
-        .section {
-            margin-bottom: 35px;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 17px;
-            margin-bottom: 13px;
-            border: 1px solid #dddddd;
-            border-radius: 9px;
-            font-size: 15px;
-            background: white;
-        }
-
-        .two-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .payment-option {
-            border: 1px solid #222222;
-            border-radius: 9px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .payment-option input {
-            width: auto;
-            margin: 0;
-            accent-color: black;
-        }
-
-        .order-summary {
-            background: #f7f7f7;
-            padding: 25px;
-            border-radius: 10px;
-            height: fit-content;
-        }
-
-        .summary-line {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            margin: 18px 0;
-            font-size: 15px;
-        }
-
-        .total {
-            border-top: 1px solid #dddddd;
-            padding-top: 20px;
-            font-size: 19px;
-            font-weight: bold;
-        }
-
-        .empty-message {
-            color: #777777;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .complete-button {
-            width: 100%;
-            padding: 19px;
-            background: #222222;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 17px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        @media (max-width: 700px) {
-            .checkout-container {
-                display: flex;
-                flex-direction: column;
-                margin: 25px auto;
-                gap: 20px;
-            }
-
-            .order-summary {
-                order: -1;
-            }
-
-            .two-columns {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <header class="checkout-header">
-        <h1>THE CLOSET</h1>
-    </header>
-
-    <div class="checkout-container">
-
-        <form id="checkout-form" action="https://formsubmit.co/thecloset.info2026@gmail.com" method="POST">
-
-            <section class="section">
-                <h2>Contact</h2>
-                <input type="email" name="email" placeholder="Email address" required>
-            </section>
-
-            <section class="section">
-                <h2>Delivery</h2>
-
-              <select name="country" required>
-    <option value="Egypt" selected>Egypt</option>
-</select>
-
-                <div class="two-columns">
-                    <input type="text" name="first_name" placeholder="First name" required>
-                    <input type="text" name="last_name" placeholder="Last name" required>
-                </div>
-
-                <input type="text" name="address" placeholder="Address" required>
-                <input type="text" name="apartment" placeholder="Apartment, suite, etc. (optional)">
-                <input type="text" name="city" placeholder="City" required>
-
-                <select name="governorate" required>
-                   <option value="">Governorate</option>
-<option value="Cairo">Cairo</option>
-<option value="Giza">Giza</option>
-<option value="Alexandria">Alexandria</option>
-<option value="Qalyubia">Qalyubia</option>
-<option value="Port Said">Port Said</option>
-<option value="Suez">Suez</option>
-<option value="Damietta">Damietta</option>
-<option value="Dakahlia">Dakahlia</option>
-<option value="Sharqia">Sharqia</option>
-<option value="Gharbia">Gharbia</option>
-<option value="Monufia">Monufia</option>
-<option value="Kafr El Sheikh">Kafr El Sheikh</option>
-<option value="Beheira">Beheira</option>
-<option value="Ismailia">Ismailia</option>
-<option value="North Sinai">North Sinai</option>
-<option value="South Sinai">South Sinai</option>
-<option value="Beni Suef">Beni Suef</option>
-<option value="Fayoum">Fayoum</option>
-<option value="Minya">Minya</option>
-<option value="Assiut">Assiut</option>
-<option value="Sohag">Sohag</option>
-<option value="Qena">Qena</option>
-<option value="Luxor">Luxor</option>
-<option value="Aswan">Aswan</option>
-<option value="Red Sea">Red Sea</option>
-<option value="New Valley">New Valley</option>
-<option value="Matrouh">Matrouh</option>
-                </select>
-
-                <input type="tel" name="phone" placeholder="Phone number" required>
-            </section>
-
-            <section class="section">
-                <h2>Shipping method</h2>
-                <p class="empty-message">
-                    Delivery details and fees will be confirmed with you.
-                </p>
-            </section>
-
-            <section class="section">
-                <h2>Payment</h2>
-
-                <div class="payment-option">
-                    <input type="radio" checked disabled>
-                    <strong>Cash on Delivery (COD)</strong>
-                </div>
-
-                <p class="empty-message">
-                    Pay in cash when your order arrives.
-                </p>
-            </section>
-
-            <section class="section">
-                <h2>Billing address</h2>
-
-                <div class="payment-option">
-                    <input type="radio" checked disabled>
-                    <strong>Same as shipping address</strong>
-                </div>
-            </section>
-
-            <button type="submit" class="complete-button">
-                COMPLETE ORDER
-            </button>
-
-        </form>
-
-        <aside class="order-summary">
-            <h2>Order Summary</h2>
-
-            <p class="empty-message">
-                Your selected products will appear here.
-            </p>
-
-            <div class="summary-line">
-                <span>Subtotal</span>
-                <span>—</span>
-            </div>
-
-            <div class="summary-line">
-                <span>Shipping</span>
-                <span>To be confirmed</span>
-            </div>
-
-            <div class="summary-line total">
-                <span>Total</span>
-                <span>To be confirmed</span>
-            </div>
-        </aside>
-
-    </div>
-
-    <script>
-      
-    </script>
-
-</body>
-</html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>THE CLOSET | Checkout</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#343943;color:#d0d1d3;font-family:Arial,sans-serif}.top{height:72px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #606773}.top a{color:#d0d1d3;text-decoration:none;letter-spacing:3px;font-size:22px}.wrap{max-width:1000px;margin:38px auto;padding:0 22px;display:grid;grid-template-columns:1.3fr .9fr;gap:36px}.panel{border:1px solid #606773;padding:24px}h2{font-size:20px;font-weight:400;letter-spacing:1px;margin-top:0}label{display:block;font-size:13px;margin:14px 0 7px}input,select,textarea{width:100%;padding:13px;background:#414752;color:#fff;border:1px solid #737b87;border-radius:0;font:14px Arial}input::placeholder,textarea::placeholder{color:#b7bbc2}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.cod{border:1px solid #737b87;padding:15px;margin-top:12px}.items{line-height:1.8;font-size:14px}.line{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #606773;padding:13px 0}.submit{width:100%;padding:16px;margin-top:20px;background:#d0d1d3;color:#343943;border:0;font-weight:bold;letter-spacing:1px;cursor:pointer}.note{font-size:12px;line-height:1.6;color:#bfc3ca}.error{color:#ffb5b5}.back{color:#d0d1d3;font-size:13px}@media(max-width:700px){.wrap{display:flex;flex-direction:column;margin:18px auto;gap:16px}.two{grid-template-columns:1fr}.summary{order:-1}}
+</style></head><body>
+<header class="top"><a href="index.html">THE CLOSET</a></header>
+<main class="wrap">
+<form class="panel" id="order-form" action="https://formsubmit.co/thecloset.info2026@gmail.com" method="POST">
+<h2>CONTACT & DELIVERY</h2>
+<input type="hidden" name="_subject" value="New THE CLOSET order"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="Order items" id="order-items"><input type="hidden" name="Order subtotal (EGP)" id="order-subtotal">
+<label for="email">Email (optional)</label><input id="email" type="email" name="Customer email" placeholder="Email address">
+<div class="two"><div><label for="first">First name</label><input id="first" name="First name" required autocomplete="given-name"></div><div><label for="last">Last name</label><input id="last" name="Last name" required autocomplete="family-name"></div></div>
+<label for="phone">Phone number</label><input id="phone" name="Phone" type="tel" required autocomplete="tel" placeholder="01xxxxxxxxx">
+<label for="governorate">Governorate</label><select id="governorate" name="Governorate" required><option value="">Choose governorate</option><option>Cairo</option><option>Giza</option><option>Alexandria</option><option>Qalyubia</option><option>Port Said</option><option>Suez</option><option>Damietta</option><option>Dakahlia</option><option>Sharqia</option><option>Gharbia</option><option>Monufia</option><option>Kafr El Sheikh</option><option>Beheira</option><option>Ismailia</option><option>North Sinai</option><option>South Sinai</option><option>Beni Suef</option><option>Fayoum</option><option>Minya</option><option>Assiut</option><option>Sohag</option><option>Qena</option><option>Luxor</option><option>Aswan</option><option>Red Sea</option><option>New Valley</option><option>Matrouh</option></select>
+<label for="city">City / Area</label><input id="city" name="City / Area" required>
+<label for="address">Full address</label><textarea id="address" name="Full address" rows="3" required placeholder="Street, building, floor, apartment"></textarea>
+<h2 style="margin-top:26px">PAYMENT</h2><div class="cod"><strong>Cash on Delivery (COD)</strong><p class="note">Pay in cash when your order arrives. Shipping fee and delivery time will be confirmed with you before dispatch.</p></div>
+<button class="submit" type="submit">PLACE ORDER</button>
+<p class="note">Your order request will be emailed to THE CLOSET. Please wait for confirmation before considering the order accepted.</p>
+</form>
+<aside class="panel summary"><h2>ORDER SUMMARY</h2><div id="summary-items" class="items"></div><div class="line"><span>Subtotal</span><strong id="subtotal">EGP 0</strong></div><div class="line"><span>Shipping</span><span>Confirmed with you</span></div><p class="note">Shipping is not included in the subtotal. The team will confirm the fee with you.</p><a class="back" href="products.html">← Continue shopping</a></aside>
+</main>
+<script>
+const bag=JSON.parse(localStorage.getItem("closetBag")||"[]");
+const total=bag.reduce((s,x)=>s+Number(x.price)*Number(x.qty),0);
+document.getElementById("summary-items").innerHTML=bag.length?bag.map(x=>'<div>'+x.name+' · '+x.size+' × '+x.qty+' — EGP '+(x.price*x.qty)+'</div>').join(""):'<p class="note">Your bag is empty. Return to the collection to add items.</p>';
+document.getElementById("subtotal").textContent="EGP "+total;
+document.getElementById("order-items").value=bag.map(x=>x.name+" / Size "+x.size+" / Qty "+x.qty+" / EGP "+(x.price*x.qty)).join("\n");
+document.getElementById("order-subtotal").value=String(total);
+document.getElementById("order-form").addEventListener("submit",e=>{if(!bag.length){e.preventDefault();alert("Your bag is empty. Please add a product first.");return;}});
+</script></body></html>
