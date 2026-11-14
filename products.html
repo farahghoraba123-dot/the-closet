@@ -31,7 +31,7 @@ body{margin:0;background:#343943;color:#d0d1d3;font-family:Arial,sans-serif}
 <aside id="bag-panel"><div class="bag-head"><h2>YOUR BAG</h2><button onclick="closeBag()" aria-label="Close bag">×</button></div><div id="bag-items"></div><p id="bag-total"></p><a id="checkout-link" href="checkout.html">CHECKOUT</a></aside>
 <script src="products-data.js"></script>
 <script>
-const names={hoodies:"HOODIES",denim:"DENIM",jackets:"JACKETS",jeans:"JEANS",sweatpants:"SWEATPANTS",essentials:"EVERYDAY ESSENTIALS"};
+const names={hoodies:"HOODIES",denim:"DENIM",jackets:"JACKETS",jeans:"JEANS",sweatpants:"SWEATPANTS",loungewear:"LOUNGEWEAR",essentials:"EVERYDAY ESSENTIALS"};
 const category=new URLSearchParams(location.search).get("category")||"";
 document.getElementById("category-title").textContent=names[category]||"COLLECTION";
 let bag=JSON.parse(localStorage.getItem("closetBag")||"[]");
