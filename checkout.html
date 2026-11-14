@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE CLOSET | Checkout</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: #171717;
+            font-family: Arial, sans-serif;
+        }
+
+        .checkout-header {
+            height: 75px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .checkout-header h1 {
+            font-size: 23px;
+            letter-spacing: 3px;
+        }
+
+        .checkout-container {
+            max-width: 1050px;
+            margin: 40px auto;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 55px;
+        }
+
+        h2 {
+            font-size: 25px;
+            margin-bottom: 22px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 17px;
+            margin-bottom: 13px;
+            border: 1px solid #dddddd;
+            border-radius: 9px;
+            font-size: 15px;
+            background: white;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .payment-option {
+            border: 1px solid #222222;
+            border-radius: 9px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .payment-option input {
+            width: auto;
+            margin: 0;
+            accent-color: black;
+        }
+
+        .order-summary {
+            background: #f7f7f7;
+            padding: 25px;
+            border-radius: 10px;
+            height: fit-content;
+        }
+
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin: 18px 0;
+            font-size: 15px;
+        }
+
+        .total {
+            border-top: 1px solid #dddddd;
+            padding-top: 20px;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .empty-message {
+            color: #777777;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .complete-button {
+            width: 100%;
+            padding: 19px;
+            background: #222222;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .checkout-container {
+                display: flex;
+                flex-direction: column;
+                margin: 25px auto;
+                gap: 20px;
+            }
+
+            .order-summary {
+                order: -1;
+            }
+
+            .two-columns {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="checkout-header">
+        <h1>THE CLOSET</h1>
+    </header>
+
+    <div class="checkout-container">
+
+        <form id="checkout-form" action="https://formsubmit.co/thecloset.info2026@gmail.com" method="POST">
+
+            <section class="section">
+                <h2>Contact</h2>
+                <input type="email" name="email" placeholder="Email address" required>
+            </section>
+
+            <section class="section">
+                <h2>Delivery</h2>
+
+              <select name="country" required>
+    <option value="Egypt" selected>Egypt</option>
+</select>
+
+                <div class="two-columns">
+                    <input type="text" name="first_name" placeholder="First name" required>
+                    <input type="text" name="last_name" placeholder="Last name" required>
+                </div>
+
+                <input type="text" name="address" placeholder="Address" required>
+                <input type="text" name="apartment" placeholder="Apartment, suite, etc. (optional)">
+                <input type="text" name="city" placeholder="City" required>
+
+                <select name="governorate" required>
+                   <option value="">Governorate</option>
+<option value="Cairo">Cairo</option>
+<option value="Giza">Giza</option>
+<option value="Alexandria">Alexandria</option>
+<option value="Qalyubia">Qalyubia</option>
+<option value="Port Said">Port Said</option>
+<option value="Suez">Suez</option>
+<option value="Damietta">Damietta</option>
+<option value="Dakahlia">Dakahlia</option>
+<option value="Sharqia">Sharqia</option>
+<option value="Gharbia">Gharbia</option>
+<option value="Monufia">Monufia</option>
+<option value="Kafr El Sheikh">Kafr El Sheikh</option>
+<option value="Beheira">Beheira</option>
+<option value="Ismailia">Ismailia</option>
+<option value="North Sinai">North Sinai</option>
+<option value="South Sinai">South Sinai</option>
+<option value="Beni Suef">Beni Suef</option>
+<option value="Fayoum">Fayoum</option>
+<option value="Minya">Minya</option>
+<option value="Assiut">Assiut</option>
+<option value="Sohag">Sohag</option>
+<option value="Qena">Qena</option>
+<option value="Luxor">Luxor</option>
+<option value="Aswan">Aswan</option>
+<option value="Red Sea">Red Sea</option>
+<option value="New Valley">New Valley</option>
+<option value="Matrouh">Matrouh</option>
+                </select>
+
+                <input type="tel" name="phone" placeholder="Phone number" required>
+            </section>
+
+            <section class="section">
+                <h2>Shipping method</h2>
+                <p class="empty-message">
+                    Delivery details and fees will be confirmed with you.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2>Payment</h2>
+
+                <div class="payment-option">
+                    <input type="radio" checked disabled>
+                    <strong>Cash on Delivery (COD)</strong>
+                </div>
+
+                <p class="empty-message">
+                    Pay in cash when your order arrives.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2>Billing address</h2>
+
+                <div class="payment-option">
+                    <input type="radio" checked disabled>
+                    <strong>Same as shipping address</strong>
+                </div>
+            </section>
+
+            <button type="submit" class="complete-button">
+                COMPLETE ORDER
+            </button>
+
+        </form>
+
+        <aside class="order-summary">
+            <h2>Order Summary</h2>
+
+            <p class="empty-message">
+                Your selected products will appear here.
+            </p>
+
+            <div class="summary-line">
+                <span>Subtotal</span>
+                <span>—</span>
+            </div>
+
+            <div class="summary-line">
+                <span>Shipping</span>
+                <span>To be confirmed</span>
+            </div>
+
+            <div class="summary-line total">
+                <span>Total</span>
+                <span>To be confirmed</span>
+            </div>
+        </aside>
+
+    </div>
+
+    <script>
+      
+    </script>
+
+</body>
+</html>
